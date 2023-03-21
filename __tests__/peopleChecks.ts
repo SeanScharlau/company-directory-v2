@@ -20,7 +20,7 @@ it("runs a health check on query getPeople - checking for Asia Streich by ID", a
 
             }
             query{
-                getPeople(name:"d44390cd-b306-4e11-b7d5-a5e0e6fe1e3d"){
+                getPeople(id:"d44390cd-b306-4e11-b7d5-a5e0e6fe1e3d"){
                     id    
                     ...NameParts
                 }
@@ -37,6 +37,11 @@ it("runs a health check on query getPeople - checking for Asia Streich by ID", a
 it("runs a health check on mutation addPerson - adding Sean Scharlau", async () => {
     const result = await server.executeOperation({
         query: gql`
+            fragment NameParts on Person{
+                firstName
+                lastName
+
+            }
             mutation{
                 addPerson(    
                     firstName: "Sean",
