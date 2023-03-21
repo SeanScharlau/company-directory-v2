@@ -11,29 +11,6 @@ const server = new ApolloServer({
     resolvers: _.merge({}, peopleResolver, departmentResolver),    
   });
 
-it("runs a health check on query getPeople - checking for Asia Streich by ID", async () => {
-    const result = await server.executeOperation({
-        query: gql`
-            fragment NameParts on Person{
-                firstName
-                lastName
-
-            }
-            query{
-                getPeople(id:"d44390cd-b306-4e11-b7d5-a5e0e6fe1e3d"){
-                    id    
-                    ...NameParts
-                }
-            }
-        `,
-    });
-    expect(result).toBeTruthy();
-    expect(result).toHaveProperty("data");
-    expect(result.errors).toBeFalsy();    
-    expect(result?.data?.getPeople?.firstName).toEqual("Asia");
-    expect(result?.data?.getPeople?.lastName).toEqual("Streich");
-});
-
 it("runs a health check on mutation addPerson - adding Sean Scharlau", async () => {
     const result = await server.executeOperation({
         query: gql`

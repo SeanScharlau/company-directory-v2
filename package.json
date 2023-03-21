@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {    
     "start": "npx nodemon app/index.ts",
-    "test": "jest --config jest.config.ts ./__tests__"
+    "test": "jest --config jest.config.ts ./__tests__",
+    "testPeople": "jest --config jest.config.ts ./__tests__/peopleChecks.ts",
+    "testDepartments": "jest --config jest.config.ts ./__tests__/departmentChecks.ts"
   },
   "keywords": [],
   "author": "",

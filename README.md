@@ -7,6 +7,10 @@ This is a GraphQL Server solution that will return data about users found in a d
 This will execute: npx nodemon app/index.ts 
 ### npm test
 This will will execute: jest --config jest.config.ts ./__tests__
+### npm run testPeople
+This will will execute: jest --config jest.config.ts ./__tests__/peopleChecks.ts
+### npm run testDepartments
+This will will execute: jest --config jest.config.ts ./__tests__/departmentsChecks.ts
 
 ## Folder Structure
 - __tests__
